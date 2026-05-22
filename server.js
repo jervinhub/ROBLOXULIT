@@ -72,7 +72,7 @@ app.get('/api/avatars/batch', async (req, res) => {
   if (!userIds) return res.json({ data: [] });
   try {
     const response = await fetchWithTimeout(
-      `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userIds}&size=150x150&format=Png&isCircular=true`,
+      `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userIds}&size=420x420&format=Png&isCircular=true`,
       { headers: { 'Accept': 'application/json', 'User-Agent': 'Mozilla/5.0' } },
       6000
     );
@@ -88,7 +88,7 @@ app.get('/api/avatars/batch', async (req, res) => {
 app.get('/api/avatar/:userId', async (req, res) => {
   try {
     const response = await fetchWithTimeout(
-      `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${req.params.userId}&size=150x150&format=Png&isCircular=true`,
+      `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${req.params.userId}&size=420x420&format=Png&isCircular=true`,
       { headers: { 'Accept': 'application/json', 'User-Agent': 'Mozilla/5.0' } },
       5000
     );
